@@ -8,8 +8,9 @@ struct Message: Identifiable {
 }
 
 struct ContentView: View {
-    @State private var messages: [Message] = []
+    @State private var chatManager = ChatManager()
     @State private var newMessageText = ""
+    @State private var messages: [Message] = []
     
     var body: some View {
         VStack(spacing: 0) {
@@ -60,20 +61,19 @@ struct ContentView: View {
         }
         .navigationTitle("チャット")
         .navigationBarTitleDisplayMode(.inline)
+        .task {
+            for await updatedMessages in await chatManager.messagesStream {
+                messages = updatedMessages
+            }
+        }
     }
     
     func sendMessage() {
-        guard !newMessageText.isEmpty else { return }
-        
-        let userMessage = Message(text: newMessageText, isFromUser: true)
-        messages.append(userMessage)
-        
-        let responseText = newMessageText
+        let messageText = newMessageText
         newMessageText = ""
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            let botMessage = Message(text: "「\(responseText)」を受信しました", isFromUser: false)
-            messages.append(botMessage)
+        Task {
+            await chatManager.sendMessage(messageText)
         }
     }
 }
