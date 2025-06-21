@@ -1,9 +1,11 @@
 import Foundation
 import SwiftUI
+import FoundationModels
 
 actor ChatManager {
     private(set) var messages: [Message] = []
     private var continuation: AsyncStream<[Message]>.Continuation?
+    private let session = LanguageModelSession()
     
     var messagesStream: AsyncStream<[Message]> {
         AsyncStream { continuation in
@@ -20,9 +22,7 @@ actor ChatManager {
         continuation?.yield(messages)
 
         do {
-            try await Task.sleep(nanoseconds: 1_000_000_000)
-            
-            let replyText = await generateReply(for: text)
+            let replyText = try await generateReply(for: text)
             let botMessage = Message(text: replyText, isFromUser: false)
             messages.append(botMessage)
             continuation?.yield(messages)
@@ -33,8 +33,9 @@ actor ChatManager {
         }
     }
     
-    private func generateReply(for text: String) async -> String {
-        return "「\(text)」を受信しました"
+    private func generateReply(for text: String) async throws -> String {
+        let res = try await session.respond(to: text)
+        return res.content
     }
     
     func clearMessages() {
