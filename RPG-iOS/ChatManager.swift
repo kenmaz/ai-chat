@@ -22,7 +22,8 @@ actor ChatManager {
         do {
             try await Task.sleep(nanoseconds: 1_000_000_000)
             
-            let botMessage = Message(text: "「\(text)」を受信しました", isFromUser: false)
+            let replyText = await generateReply(for: text)
+            let botMessage = Message(text: replyText, isFromUser: false)
             messages.append(botMessage)
             continuation?.yield(messages)
         } catch {
@@ -30,6 +31,10 @@ actor ChatManager {
             messages.append(errorMessage)
             continuation?.yield(messages)
         }
+    }
+    
+    private func generateReply(for text: String) async -> String {
+        return "「\(text)」を受信しました"
     }
     
     func clearMessages() {
