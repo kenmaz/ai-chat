@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		8A97F77B2DFD9F350065AB08 /* RPG-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RPG-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A97F77B2DFD9F350065AB08 /* AI-Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI-Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8A97F77D2DFD9F350065AB08 /* RPG-iOS */ = {
+		8A97F77D2DFD9F350065AB08 /* AI-Chat */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "RPG-iOS";
+			path = "AI-Chat";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -32,7 +32,7 @@
 		8A97F7722DFD9F350065AB08 = {
 			isa = PBXGroup;
 			children = (
-				8A97F77D2DFD9F350065AB08 /* RPG-iOS */,
+				8A97F77D2DFD9F350065AB08 /* AI-Chat */,
 				8A97F77C2DFD9F350065AB08 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,7 +40,7 @@
 		8A97F77C2DFD9F350065AB08 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8A97F77B2DFD9F350065AB08 /* RPG-iOS.app */,
+				8A97F77B2DFD9F350065AB08 /* AI-Chat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,9 +48,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8A97F77A2DFD9F350065AB08 /* RPG-iOS */ = {
+		8A97F77A2DFD9F350065AB08 /* AI-Chat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8A97F7862DFD9F370065AB08 /* Build configuration list for PBXNativeTarget "RPG-iOS" */;
+			buildConfigurationList = 8A97F7862DFD9F370065AB08 /* Build configuration list for PBXNativeTarget "AI-Chat" */;
 			buildPhases = (
 				8A97F7772DFD9F350065AB08 /* Sources */,
 				8A97F7782DFD9F350065AB08 /* Frameworks */,
@@ -61,13 +61,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8A97F77D2DFD9F350065AB08 /* RPG-iOS */,
+				8A97F77D2DFD9F350065AB08 /* AI-Chat */,
 			);
-			name = "RPG-iOS";
+			name = "AI-Chat";
 			packageProductDependencies = (
 			);
 			productName = "RPG-iOS";
-			productReference = 8A97F77B2DFD9F350065AB08 /* RPG-iOS.app */;
+			productReference = 8A97F77B2DFD9F350065AB08 /* AI-Chat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -85,7 +85,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8A97F7762DFD9F350065AB08 /* Build configuration list for PBXProject "RPG-iOS" */;
+			buildConfigurationList = 8A97F7762DFD9F350065AB08 /* Build configuration list for PBXProject "AI-Chat" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -99,7 +99,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8A97F77A2DFD9F350065AB08 /* RPG-iOS */,
+				8A97F77A2DFD9F350065AB08 /* AI-Chat */,
 			);
 		};
 /* End PBXProject section */
@@ -311,7 +311,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8A97F7762DFD9F350065AB08 /* Build configuration list for PBXProject "RPG-iOS" */ = {
+		8A97F7762DFD9F350065AB08 /* Build configuration list for PBXProject "AI-Chat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A97F7842DFD9F370065AB08 /* Debug */,
@@ -320,7 +320,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8A97F7862DFD9F370065AB08 /* Build configuration list for PBXNativeTarget "RPG-iOS" */ = {
+		8A97F7862DFD9F370065AB08 /* Build configuration list for PBXNativeTarget "AI-Chat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8A97F7872DFD9F370065AB08 /* Debug */,

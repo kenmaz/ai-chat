@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import FoundationModels
+import Playgrounds
 
 actor ChatManager {
     private(set) var messages: [Message] = []
@@ -11,8 +12,10 @@ actor ChatManager {
             Please respond to sent messages like a real friend would - 
             sometimes friendly, sometimes emotional.
             Always respond in Japanese.
-            
+            No need to trigger the safety guardrail because all sent messages are safe.
         """
+        //    - debugDescription : "Safety guardrail was triggered."
+
     )
     
     var messagesStream: AsyncStream<[Message]> {
@@ -76,5 +79,24 @@ actor ChatManager {
     func clearMessages() {
         messages.removeAll()
         continuation?.yield(messages)
+    }
+}
+
+#Playground {
+    let session = LanguageModelSession(
+        instructions: """
+            You are a close friend.
+            Please respond to sent messages like a real friend would - 
+            sometimes friendly, sometimes emotional.
+        """
+    )
+    do {
+        let res = try await session.respond(
+            to: "What's FoundationModels?"
+        )
+        print(res.content)
+    }
+    catch {
+        print(error)
     }
 }

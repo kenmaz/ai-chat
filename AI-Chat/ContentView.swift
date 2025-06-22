@@ -7,7 +7,7 @@ struct Message: Identifiable, Sendable {
     let isThinking: Bool
     let timestamp = Date()
     
-    init(text: String, isFromUser: Bool, isThinking: Bool = false) {
+    nonisolated init(text: String, isFromUser: Bool, isThinking: Bool = false) {
         self.text = text
         self.isFromUser = isFromUser
         self.isThinking = isThinking
