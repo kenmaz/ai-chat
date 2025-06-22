@@ -1,10 +1,17 @@
 import SwiftUI
 
-struct Message: Identifiable {
+struct Message: Identifiable, Sendable {
     let id = UUID()
     let text: String
     let isFromUser: Bool
+    let isThinking: Bool
     let timestamp = Date()
+    
+    init(text: String, isFromUser: Bool, isThinking: Bool = false) {
+        self.text = text
+        self.isFromUser = isFromUser
+        self.isThinking = isThinking
+    }
 }
 
 struct ContentView: View {
@@ -24,8 +31,16 @@ struct ContentView: View {
                                     MessageBubble(message: message)
                                         .id(message.id)
                                 } else {
-                                    MessageBubble(message: message)
-                                        .id(message.id)
+                                    if message.isThinking {
+                                        Text(message.text)
+                                            .foregroundColor(.gray)
+                                            .font(.caption)
+                                            .italic()
+                                            .id(message.id)
+                                    } else {
+                                        MessageBubble(message: message)
+                                            .id(message.id)
+                                    }
                                     Spacer()
                                 }
                             }
