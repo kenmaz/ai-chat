@@ -58,17 +58,17 @@ actor ChatManager {
     }
     
     private func newSession(previousSession: LanguageModelSession) -> LanguageModelSession {
-      let allEntries = previousSession.transcript.entries
-      var condensedEntries = [Transcript.Entry]()
-      if let firstEntry = allEntries.first {
-        condensedEntries.append(firstEntry)
-        if allEntries.count > 1, let lastEntry = allEntries.last {
-          condensedEntries.append(lastEntry)
+        let allEntries = previousSession.transcript
+        var condensedEntries = [Transcript.Entry]()
+        if let firstEntry = allEntries.first {
+            condensedEntries.append(firstEntry)
+            if allEntries.count > 1, let lastEntry = allEntries.last {
+                condensedEntries.append(lastEntry)
+            }
         }
-      }
-      let condensedTranscript = Transcript(entries: condensedEntries)
-      // Note: transcript includes instructions.
-      return LanguageModelSession(transcript: condensedTranscript)
+        let condensedTranscript = Transcript(entries: condensedEntries)
+        // Note: transcript includes instructions.
+        return LanguageModelSession(transcript: condensedTranscript)
     }
     
     private func generateReply(for text: String) async throws -> String {
